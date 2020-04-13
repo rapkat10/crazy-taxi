@@ -30,5 +30,5 @@ Crazy Taxi is car game where you have a taxi, driving on a lane and you have to 
 
 ## Bonus Features
 * Add more lanes
-* Implememt difficulty levels based on score
+* Implement difficulty levels based on score
 * save scores of the users
