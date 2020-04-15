@@ -1,0 +1,41 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas {
+  width: 800px;
+  height: 750px;
+}
+
+.navbar-div {
+  height: 80px;
+  width: 100%;
+  margin-bottom: 20px;
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background: lightblue;
+}
+
+.empty {
+  margin-left: 50px;
+}
+
+.about-links-div {
+  display: flex;
+  margin-left: 30px;
+}
+
+.fab {
+  margin: 10px;
+}
+
+.title-div {
+  font-size: 60px;
+  margin-left: 20px;
+}
