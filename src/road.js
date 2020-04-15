@@ -1,5 +1,3 @@
-
-
 export default class Road {
 
   constructor(game) {
@@ -9,7 +7,6 @@ export default class Road {
     this.road = new Image;
     this.road.src = "../dist/assets/images/backgroundRoad.png";
     this.speed = 0;
-
   }
 
   speedUp() {
@@ -30,11 +27,9 @@ export default class Road {
 
   update() {
     if (this.yOffSet >= 0) this.yOffSet = -150;
-
     this.ctx.drawImage(this.road, 0, this.yOffSet);
     this.ctx.drawImage(this.road, 0, this.yOffSet + 150);
     this.ctx.drawImage(this.road, 0, this.yOffSet + 300);
-
     this.yOffSet += this.speed;
   }
 

@@ -5,10 +5,10 @@ export default class GameControls {
     this.road = options.road;
     this.playerTaxi = options.playerTaxi;
 
-    this.init();
+    this.controls();
   }
 
-  init() {
+  controls() {
     document.addEventListener("keydown", (e) => {
       switch(e.keyCode) {
         case 37: //left

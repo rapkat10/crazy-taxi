@@ -16,10 +16,10 @@ export default class Game {
     });
 
     this.otherTaxis = [];
-    setInterval(() => this.createCars(), 2500);
+    setInterval(() => this.createTaxis(), 3000);
   }
 
-  createCars() {
+  createTaxis() {
     let otherTaxi = new OtherTaxi(this);
     this.otherTaxis.push(otherTaxi);
   }
@@ -27,7 +27,6 @@ export default class Game {
   update() {
     this.road.update();
     this.playerTaxi.update();
-
     this.otherTaxis.forEach(taxi => {
       taxi.update();
     })
