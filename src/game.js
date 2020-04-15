@@ -1,35 +1,35 @@
 import Road from "./road";
-import PlayerCar from "./player";
+import PlayerTaxi from "./player";
 import GameControls from "./game_controls";
-import IncomingCars from "./incomingCars";
+import OtherTaxi from "./otherTaxi";
 
 export default class Game {
   
   constructor(ctx) {
     this.ctx = ctx;
     this.road = new Road(this);
-    this.playerCar = new PlayerCar(this);
+    this.playerTaxi = new PlayerTaxi(this);
 
     new GameControls({
         road: this.road,
-        playerCar: this.playerCar
+        playerTaxi: this.playerTaxi
     });
 
-    this.incomingCars = [];
+    this.otherTaxis = [];
     setInterval(() => this.createCars(), 2500);
   }
 
   createCars() {
-    let incomingCar = new IncomingCars(this);
-    this.incomingCars.push(incomingCar);
+    let otherTaxi = new OtherTaxi(this);
+    this.otherTaxis.push(otherTaxi);
   }
 
   update() {
     this.road.update();
-    this.playerCar.update();
+    this.playerTaxi.update();
 
-    this.incomingCars.forEach(car => {
-      car.update();
+    this.otherTaxis.forEach(taxi => {
+      taxi.update();
     })
   }
 

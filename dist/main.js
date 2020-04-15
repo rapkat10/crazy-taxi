@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Game; });\n/* harmony import */ var _road__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./road */ \"./src/road.js\");\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./player */ \"./src/player.js\");\n/* harmony import */ var _game_controls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game_controls */ \"./src/game_controls.js\");\n/* harmony import */ var _incomingCars__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./incomingCars */ \"./src/incomingCars.js\");\n\n\n\n\n\nclass Game {\n  \n  constructor(ctx) {\n    this.ctx = ctx;\n    this.road = new _road__WEBPACK_IMPORTED_MODULE_0__[\"default\"](this);\n    this.playerCar = new _player__WEBPACK_IMPORTED_MODULE_1__[\"default\"](this);\n\n    new _game_controls__WEBPACK_IMPORTED_MODULE_2__[\"default\"]({\n        road: this.road,\n        playerCar: this.playerCar\n    });\n\n    this.incomingCars = [];\n    setInterval(() => this.createCars(), 2500);\n  }\n\n  createCars() {\n    let incomingCar = new _incomingCars__WEBPACK_IMPORTED_MODULE_3__[\"default\"](this);\n    this.incomingCars.push(incomingCar);\n  }\n\n  update() {\n    this.road.update();\n    this.playerCar.update();\n\n    this.incomingCars.forEach(car => {\n      car.update();\n    })\n  }\n\n}\n\n\n//# sourceURL=webpack:///./src/game.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Game; });\n/* harmony import */ var _road__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./road */ \"./src/road.js\");\n/* harmony import */ var _player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./player */ \"./src/player.js\");\n/* harmony import */ var _game_controls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game_controls */ \"./src/game_controls.js\");\n/* harmony import */ var _otherTaxi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./otherTaxi */ \"./src/otherTaxi.js\");\n\n\n\n\n\nclass Game {\n  \n  constructor(ctx) {\n    this.ctx = ctx;\n    this.road = new _road__WEBPACK_IMPORTED_MODULE_0__[\"default\"](this);\n    this.playerTaxi = new _player__WEBPACK_IMPORTED_MODULE_1__[\"default\"](this);\n\n    new _game_controls__WEBPACK_IMPORTED_MODULE_2__[\"default\"]({\n        road: this.road,\n        playerTaxi: this.playerTaxi\n    });\n\n    this.otherTaxis = [];\n    setInterval(() => this.createCars(), 2500);\n  }\n\n  createCars() {\n    let otherTaxi = new _otherTaxi__WEBPACK_IMPORTED_MODULE_3__[\"default\"](this);\n    this.otherTaxis.push(otherTaxi);\n  }\n\n  update() {\n    this.road.update();\n    this.playerTaxi.update();\n\n    this.otherTaxis.forEach(taxi => {\n      taxi.update();\n    })\n  }\n\n}\n\n\n//# sourceURL=webpack:///./src/game.js?");
 
 /***/ }),
 
@@ -106,19 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return GameControls; });\n\n\nclass GameControls {\n\n  constructor(options) {\n    this.road = options.road;\n    this.playerCar = options.playerCar;\n\n    this.init();\n  }\n\n  init() {\n    document.addEventListener(\"keydown\", (e) => {\n      switch(e.keyCode) {\n        case 37: //left\n          this.playerCar.moveLeft();\n          break;\n        case 38: //up\n          this.road.speedUp();\n          break;\n        case 39: //right\n          this.playerCar.moveRight();\n          break;\n        case 40: //down\n          this.road.slowDown();\n          break;\n        case 32: //spacebar\n          this.playerCar.jump();\n          break;\n        default:\n          break;\n      }\n    })\n  }\n}\n\n//# sourceURL=webpack:///./src/game_controls.js?");
-
-/***/ }),
-
-/***/ "./src/incomingCars.js":
-/*!*****************************!*\
-  !*** ./src/incomingCars.js ***!
-  \*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return IncomingCars; });\n\n\nclass IncomingCars {\n\n  constructor(game) {\n    this.game = game;\n    this.ctx = this.game.ctx;\n\n    this.car1 = new Image;\n    this.car1.src = \"../dist/assets/images/incomingcar1.png\";\n    this.car2 = new Image;\n    this.car2.src = \"../dist/assets/images/incomingcar2.png\";\n    this.car = [this.car1, this.car2][Math.floor(Math.random() * 2)];\n    this.Xpos = [85, 130, 178][Math.floor(Math.random() * 3)];\n    if (this.game.road.speed === 0) {\n      this.Ypos = [90, 80, 70, 60, 50, 40, 30][Math.floor(Math.random() * 7)];\n    } else {\n      this.Ypos = 0;\n    }\n  }\n\n  update() {\n    this.ctx.drawImage(this.car, this.Xpos, this.Ypos);\n    \n\n    if (this.game.road.speed === 0) {\n      this.Ypos -= 0.5;\n    } else {\n      this.Ypos += this.game.road.speed / 3;\n    }\n  }\n}\n\n//# sourceURL=webpack:///./src/incomingCars.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return GameControls; });\n\nclass GameControls {\n\n  constructor(options) {\n    this.road = options.road;\n    this.playerTaxi = options.playerTaxi;\n\n    this.init();\n  }\n\n  init() {\n    document.addEventListener(\"keydown\", (e) => {\n      switch(e.keyCode) {\n        case 37: //left\n          this.playerTaxi.moveLeft();\n          break;\n        case 38: //up\n          this.road.speedUp();\n          break;\n        case 39: //right\n          this.playerTaxi.moveRight();\n          break;\n        case 40: //down\n          this.road.slowDown();\n          break;\n        case 32: //spacebar\n          this.playerTaxi.jump();\n          break;\n        default:\n          break;\n      }\n    })\n  }\n}\n\n//# sourceURL=webpack:///./src/game_controls.js?");
 
 /***/ }),
 
@@ -134,6 +122,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gam
 
 /***/ }),
 
+/***/ "./src/otherTaxi.js":
+/*!**************************!*\
+  !*** ./src/otherTaxi.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return OtherTaxi; });\n\nclass OtherTaxi {\n\n  constructor(game) {\n    this.game = game;\n    this.ctx = this.game.ctx;\n\n    this.taxi1 = new Image;\n    this.taxi1.src = \"../dist/assets/images/othertaxi1.png\";\n    this.taxi2 = new Image;\n    this.taxi2.src = \"../dist/assets/images/othertaxi2.png\";\n    this.taxi = [this.taxi1, this.taxi2][Math.floor(Math.random() * 2)];\n    this.Xpos = [85, 130, 178][Math.floor(Math.random() * 3)];\n    if (this.game.road.speed === 0) {\n      this.Ypos = [90, 80, 70, 60, 50, 40, 30][Math.floor(Math.random() * 7)];\n    } else {\n      this.Ypos = 0;\n    }\n  }\n\n  update() {\n    this.ctx.drawImage(this.taxi, this.Xpos, this.Ypos);\n    \n\n    if (this.game.road.speed === 0) {\n      this.Ypos -= 0.5;\n    } else {\n      this.Ypos += this.game.road.speed / 3;\n    }\n  }\n}\n\n//# sourceURL=webpack:///./src/otherTaxi.js?");
+
+/***/ }),
+
 /***/ "./src/player.js":
 /*!***********************!*\
   !*** ./src/player.js ***!
@@ -142,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gam
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return PlayerCar; });\n\n\nclass PlayerCar {\n\n  constructor(game) {\n    this.game = game;\n    this.ctx = this.game.ctx;\n    this.positionX = 130;\n    this.postionY = 120;\n\n    this.car = new Image;\n    this.car.src = \"../dist/assets/images/playerCar.png\";\n\n  }\n\n  moveLeft() {\n    if (this.positionX === 130) {\n      this.positionX = 85;\n    }else if (this.positionX === 85) {\n      this.positionX = 85;\n    } else {\n      this.positionX = 130;\n    }\n  }\n\n  moveRight() {\n    if (this.positionX === 130) {\n      this.positionX = 178;\n    } else if (this.positionX === 178) {\n      this.positionX = 178;\n    } else {\n      this.positionX = 130;\n    }\n  }\n\n  jump() {\n    this.postionY = 80;\n    setTimeout(() => {\n      this.postionY = 120;\n    }, 2000)\n  }\n\n  update() {\n    this.ctx.drawImage(this.car, this.positionX, this.postionY);\n  }\n\n}\n\n//# sourceURL=webpack:///./src/player.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return PlayerTaxi; });\n\nclass PlayerTaxi {\n\n  constructor(game) {\n    this.game = game;\n    this.ctx = this.game.ctx;\n    this.positionX = 130;\n    this.postionY = 120;\n\n    this.taxi = new Image;\n    this.taxi.src = \"../dist/assets/images/playerTaxi.png\";\n\n  }\n\n  moveLeft() {\n    if (this.positionX === 130) {\n      this.positionX = 85;\n    }else if (this.positionX === 85) {\n      this.positionX = 85;\n    } else {\n      this.positionX = 130;\n    }\n  }\n\n  moveRight() {\n    if (this.positionX === 130) {\n      this.positionX = 178;\n    } else if (this.positionX === 178) {\n      this.positionX = 178;\n    } else {\n      this.positionX = 130;\n    }\n  }\n\n  jump() {\n    this.postionY = 80;\n    setTimeout(() => {\n      this.postionY = 120;\n    }, 2000)\n  }\n\n  update() {\n    this.ctx.drawImage(this.taxi, this.positionX, this.postionY);\n  }\n\n}\n\n//# sourceURL=webpack:///./src/player.js?");
 
 /***/ }),
 

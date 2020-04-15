@@ -1,10 +1,9 @@
 
-
 export default class GameControls {
 
   constructor(options) {
     this.road = options.road;
-    this.playerCar = options.playerCar;
+    this.playerTaxi = options.playerTaxi;
 
     this.init();
   }
@@ -13,19 +12,19 @@ export default class GameControls {
     document.addEventListener("keydown", (e) => {
       switch(e.keyCode) {
         case 37: //left
-          this.playerCar.moveLeft();
+          this.playerTaxi.moveLeft();
           break;
         case 38: //up
           this.road.speedUp();
           break;
         case 39: //right
-          this.playerCar.moveRight();
+          this.playerTaxi.moveRight();
           break;
         case 40: //down
           this.road.slowDown();
           break;
         case 32: //spacebar
-          this.playerCar.jump();
+          this.playerTaxi.jump();
           break;
         default:
           break;

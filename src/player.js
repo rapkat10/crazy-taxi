@@ -1,6 +1,5 @@
 
-
-export default class PlayerCar {
+export default class PlayerTaxi {
 
   constructor(game) {
     this.game = game;
@@ -8,8 +7,8 @@ export default class PlayerCar {
     this.positionX = 130;
     this.postionY = 120;
 
-    this.car = new Image;
-    this.car.src = "../dist/assets/images/playerCar.png";
+    this.taxi = new Image;
+    this.taxi.src = "../dist/assets/images/playerTaxi.png";
 
   }
 
@@ -41,7 +40,7 @@ export default class PlayerCar {
   }
 
   update() {
-    this.ctx.drawImage(this.car, this.positionX, this.postionY);
+    this.ctx.drawImage(this.taxi, this.positionX, this.postionY);
   }
 
 }
