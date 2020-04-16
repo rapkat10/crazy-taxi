@@ -18,11 +18,16 @@ export default class Road {
   }
 
   slowDown() {
-    if(this.speed <= 0) {
+    if (this.speed <= 0) {
       this.speed = 0;
-    }else {
-      this.speed -= 5;
+    } else {
+      this.speed -= 0.5;
     }
+    // if (this.speed > 5) {
+    //   this.speed -= 5;
+    // } else {
+    //   this.speed = 0;
+    // }
   }
 
   update() {
