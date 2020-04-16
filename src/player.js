@@ -5,7 +5,8 @@ export default class PlayerTaxi {
     this.game = game;
     this.ctx = this.game.ctx;
     this.positionX = 130;
-    this.postionY = 120;
+    this.positionY = 120;
+    this.jumped = false;
 
     this.taxi = new Image;
     this.taxi.src = "../dist/assets/images/playerTaxi.png";
@@ -32,15 +33,22 @@ export default class PlayerTaxi {
     }
   }
 
+  resetPosition() {
+    this.positionX = 130;
+    this.positionY = 120;
+  }
+
   jump() {
-    this.postionY = 80;
+    this.jumped = true;
+    this.positionY = 80;
     setTimeout(() => {
-      this.postionY = 120;
+      this.positionY = 120;
+      this.jumped = false;
     }, 2000)
   }
 
   update() {
-    this.ctx.drawImage(this.taxi, this.positionX, this.postionY);
+    this.ctx.drawImage(this.taxi, this.positionX, this.positionY);
   }
 
 }
