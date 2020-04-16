@@ -10,22 +10,22 @@ export default class OtherTaxi {
     this.taxi2 = new Image;
     this.taxi2.src = "../dist/assets/images/othertaxi2.png";
     this.taxi = [this.taxi1, this.taxi2][Math.floor(Math.random() * 2)];
-    this.Xpos = [85, 130, 178][Math.floor(Math.random() * 3)];
+    this.positionX = [85, 130, 178][Math.floor(Math.random() * 3)];
     if (this.game.road.speed === 0) {
-      this.Ypos = [90, 80, 70, 60, 50, 40, 30][Math.floor(Math.random() * 7)];
+      this.positionY = [90, 80, 70, 60, 50, 40, 30][Math.floor(Math.random() * 7)];
     } else {
-      this.Ypos = 0;
+      this.positionY = 0;
     }
   }
 
   update() {
-    this.ctx.drawImage(this.taxi, this.Xpos, this.Ypos);
+    this.ctx.drawImage(this.taxi, this.positionX, this.positionY);
     
 
     if (this.game.road.speed === 0) {
-      this.Ypos -= 0.5;
+      this.positionY -= 0.5;
     } else {
-      this.Ypos += this.game.road.speed / 3;
+      this.positionY += this.game.road.speed / 3;
     }
   }
 }
