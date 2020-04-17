@@ -4,7 +4,7 @@ export default class MainPage {
   constructor(ctx) {
     this.ctx = ctx;
     this.mainPage = new Image;
-    this.mainPage.src = "../dist/assets/images/mainPage.jpg";
+    this.mainPage.src = "./dist/assets/images/mainPage.jpg";
   }
 
   questionMarkListener() {

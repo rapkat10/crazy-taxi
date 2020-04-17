@@ -8,7 +8,7 @@ export default class PlayerTaxi {
     this.jumped = false;
 
     this.taxi = new Image;
-    this.taxi.src = "../dist/assets/images/playerTaxi.png";
+    this.taxi.src = "./dist/assets/images/playerTaxi.png";
 
   }
 

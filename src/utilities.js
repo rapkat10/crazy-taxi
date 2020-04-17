@@ -113,17 +113,17 @@ export const clickListener = () => {
     //play music and stop music
     if (e.toElement.className === "playMusic") {
       const musicArr = [
-        "../dist/assets/sounds/cukurdayiz.mp3",
-        "../dist/assets/sounds/heycan.wav",
-        "../dist/assets/sounds/adanali.wav",
-        "../dist/assets/sounds/crazyfrog.wav",
-        "../dist/assets/sounds/eyvallah.wav",
-        "../dist/assets/sounds/farkvar.wav",
-        "../dist/assets/sounds/fast5.wav",
-        "../dist/assets/sounds/karakol.wav",
-        "../dist/assets/sounds/mj.wav",
-        "../dist/assets/sounds/mozart.wav",
-        "../dist/assets/sounds/tokyodrift.wav"
+        "./dist/assets/sounds/cukurdayiz.mp3",
+        "./dist/assets/sounds/heycan.wav",
+        "./dist/assets/sounds/adanali.wav",
+        "./dist/assets/sounds/crazyfrog.wav",
+        "./dist/assets/sounds/eyvallah.wav",
+        "./dist/assets/sounds/farkvar.wav",
+        "./dist/assets/sounds/fast5.wav",
+        "./dist/assets/sounds/karakol.wav",
+        "./dist/assets/sounds/mj.wav",
+        "./dist/assets/sounds/mozart.wav",
+        "./dist/assets/sounds/tokyodrift.wav"
       ]
       let selectedMusic = musicArr[Math.floor(Math.random() * 11)];
       let prevAudio = document.getElementById("cukurdayiz");

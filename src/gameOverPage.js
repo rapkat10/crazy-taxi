@@ -4,7 +4,7 @@ export default class MainPage {
     this.game = game;
     this.ctx = this.game.ctx;
     this.gameOver = new Image;
-    this.gameOver.src = "../dist/assets/images/gameover.png";
+    this.gameOver.src = "./dist/assets/images/gameover.png";
   }
 
   update() {

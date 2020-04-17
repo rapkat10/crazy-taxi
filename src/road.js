@@ -5,12 +5,12 @@ export default class Road {
     this.ctx = this.game.ctx;
     this.yOffSet = -150;
     this.road = new Image;
-    this.road.src = "../dist/assets/images/backgroundRoad.png";
+    this.road.src = "./dist/assets/images/backgroundRoad.png";
 
     this.sceneLeft = new Image;
-    this.sceneLeft.src = "../dist/assets/images/scene1_left.png";
+    this.sceneLeft.src = "./dist/assets/images/scene1_left.png";
     this.sceneRight = new Image;
-    this.sceneRight.src = "../dist/assets/images/scene1_right.png";
+    this.sceneRight.src = "./dist/assets/images/scene1_right.png";
 
     this.speed = 0;
   }

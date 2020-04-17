@@ -3,7 +3,7 @@ export default class Instructions {
   constructor(ctx) {
     this.ctx = ctx;
     this.instructions = new Image;
-    this.instructions.src = "../dist/assets/images/instructions.jpg";
+    this.instructions.src = "./dist/assets/images/instructions.jpg";
   }
 
   update() {
