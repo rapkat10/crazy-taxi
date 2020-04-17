@@ -54,7 +54,7 @@ body {
 .instructions-icon {
   cursor: pointer;
   position: absolute;
-  top: 1%;
+  top: 3%;
   right: 8%;
   font-size: 30px;
 }
@@ -175,7 +175,7 @@ body {
 .soundOn {
   cursor: pointer;
   position: absolute;
-  top: 1%;
+  top: 3%;
   right: 2%;
   font-size: 30px;
 }
@@ -269,5 +269,12 @@ body {
   position: absolute;
   top: 5%;
   left: 17%;
+  letter-spacing: 0.1em;
+}
+
+.speedcount {
+  position: absolute;
+  top: 10%;
+  right: 1%;
   letter-spacing: 0.1em;
 }

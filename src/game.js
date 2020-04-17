@@ -40,7 +40,9 @@ export default class Game {
     document.querySelector(".playAgain").style.display = "none";
     document.querySelector(".home").style.display = "none";
     let score = document.querySelector(".scorecount");
-    score.parentNode.removeChild(score);
+    if (score) {
+      score.parentNode.removeChild(score);
+    }
     document.onkeydown = null;
   }
 

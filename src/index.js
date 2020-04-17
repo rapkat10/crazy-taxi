@@ -19,6 +19,10 @@ document.addEventListener('click', (e) => {
     document.querySelector('.instructions').style.display = "block";
     document.querySelector('.start-btn-home').style.display = "none";
     document.querySelector(".playMusic").click();
+    let check = document.querySelector(".speedcount");
+    if (check) {
+      check.parentNode.removeChild(check);
+    }
     let canvas = document.getElementById('crazy-taxi');
     let ctx = canvas.getContext("2d");
     let instructions = new Instructions(ctx);
@@ -41,8 +45,18 @@ document.addEventListener('click', (e) => {
   }
   //question icon for instructions
   if (e.toElement.className === "fas fa-question-circle") {
+    debugger;
     document.querySelector('.instructions').style.display = "block";
     document.querySelector('.start-btn-home').style.display = "none";
+    document.querySelector(".playMusic").click();
+    let check = document.querySelector(".speedcount");
+    if (check) {
+      check.parentNode.removeChild(check);
+    }
+    let score = document.querySelector(".scorecount");
+    if (score) {
+      score.parentNode.removeChild(score);
+    }
     let canvas = document.getElementById('crazy-taxi');
     let ctx = canvas.getContext("2d");
     let instructions = new Instructions(ctx);
@@ -55,7 +69,13 @@ document.addEventListener('click', (e) => {
   //home button
   if (e.toElement.className === "home") {
     let score = document.querySelector(".scorecount");
-    score.parentNode.removeChild(score);
+    if (score) {
+      score.parentNode.removeChild(score);
+    }
+    let check = document.querySelector(".speedcount");
+    if (check) {
+      check.parentNode.removeChild(check);
+    }
     document.querySelector('.start-btn-home').style.display = "block";
     let canvas = document.getElementById('crazy-taxi');
     let ctx = canvas.getContext("2d");

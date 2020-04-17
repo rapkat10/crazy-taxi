@@ -10,7 +10,9 @@ export default class Score {
     if (gameOver) {
       this.score = 0;
       let score = document.querySelector(".scorecount");
-      score.parentNode.removeChild(score);
+      if (score) {
+        score.parentNode.removeChild(score);
+      }
       return;
     } else {
       const canvasDiv = document.querySelector(".canvas-div");
@@ -25,8 +27,8 @@ export default class Score {
           setInterval(() => {
             this.score += 1;
             score.innerHTML = this.score;
-            }, 100);
-          }
+          }, 100);
+        }
         canvasDiv.appendChild(score);
       }
     }

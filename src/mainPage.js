@@ -13,5 +13,4 @@ export default class MainPage {
     document.querySelector(".home").style.display = "none";
     document.querySelector('.start-btn-home').style.display = "block";
   }
-
 }
