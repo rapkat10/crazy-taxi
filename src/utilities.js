@@ -52,7 +52,8 @@ export const clickListener = () => {
       }
     }
     //start button from instructions
-    if (e.toElement.className === "start-button") {
+    if (e.toElement.className === "start-button" || 
+        e.toElement.className === "start-button-p") {
       let score = document.querySelector(".scorecount");
       if (score) {
         score.style.display = "none"

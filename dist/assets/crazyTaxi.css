@@ -17,26 +17,28 @@ body {
   cursor: default;
   position: absolute;
   top: 1%;
-  left: 1%;
-  padding: 20px 90px 20px 10px;
+  left: 0.5%;
+  padding: 20px 85px 20px 10px;
   font-size: 30px;
-  background: rgba(207, 204, 204, 0.3);
+  background: rgba(207, 204, 204, 0.4);
   border-radius: 15px;
-  border: 1px solid beige;
+  border: 3px solid beige;
 }
 
 .start-btn-home {
   cursor: pointer;
   position: absolute;
   top: 65%;
-  left: 40%;
-  padding: 20px 40px 20px 40px;
+  left: 33%;
+  padding: 20px 80px 20px 80px;
   font-size: 30px;
   display: block;
   border-radius: 15px;
   background: lightblue;
-  border: 1px solid beige;
+  border: 3px solid beige;
   outline: none;
+  letter-spacing: 0.1em;
+  color: beige;
   animation: spin 6s infinite ease-in-out;
 }
 
@@ -60,6 +62,7 @@ body {
 }
 
 .instructions {
+  cursor: default;
   position: absolute;
   top: 28%;
   left: 24.5%;
@@ -159,16 +162,33 @@ body {
   cursor: pointer;
   position: absolute;
   bottom: -130%;
-  left: 30%;
-  padding: 20px 40px 20px 40px;
+  left: 18%;
+  padding: 20px 80px 20px 80px;
   font-size: 30px;
-  border-radius: 15px;
+  border-radius: 25px;
   background: lightblue;
-  border: 1px solid beige;
+  border: 3px solid beige;
   outline: none;
 }
 
-.start-button:hover {
+.start-button-p {
+  letter-spacing: 0.1em;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+.start-button:hover, .start-button>p:hover {
+  animation: none;
   transform: translateY(-3px);
 }
 
@@ -194,6 +214,18 @@ body {
   border-radius: 10px;
   color: beige;
   border: 3px solid beige;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
 }
 
 .home {
@@ -209,9 +241,22 @@ body {
   border-radius: 10px;
   color: beige;
   border: 3px solid beige;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(20px);
+  }
 }
 
 .home:hover {
+  animation: none;
   transform: translateY(-3px);
 }
 
@@ -268,21 +313,8 @@ body {
 
 .fa-linkedin, .fa-github {
   margin: 10px;
-
   -webkit-animation: mover 1s infinite alternate;
   animation: mover 1s infinite alternate;
-  -webkit-animation: mover 1s infinite alternate;
-  animation: mover 1s infinite alternate;
-}
-
-@-webkit-keyframes mover {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-10px);
-  }
 }
 
 @keyframes mover {
@@ -297,28 +329,46 @@ body {
 
 .fa-linkedin:hover,
 .fa-github:hover {
-  -webkit-animation: none;
+  animation: none;
 }
 
 .title-div {
   font-size: 50px;
+  display: flex;
+}
+
+.title-div > h1 {
+  cursor: default;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.fa-car-crash {
+  color: rgb(148, 6, 6);
 }
 
 .fa-volume-mute {
   color: red;
 }
 
-
 .scorecount {
+  cursor: default;
   position: absolute;
-  top: 5%;
-  left: 17%;
+  top: 5.1%;
+  left: 16%;
   letter-spacing: 0.1em;
+  font-size: 20px;
 }
 
 .speedcount {
+  cursor: default;
   position: absolute;
   top: 10%;
   right: 1%;
   letter-spacing: 0.1em;
+  font-size: 15px;
+  padding: 10px;
+  background: lightgreen;
+  border-radius: 30px;
+  border: 3px solid black;
 }
