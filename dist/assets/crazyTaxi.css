@@ -3,11 +3,223 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: 'Orbitron',
+  sans-serif;
+
+  background: beige;
+}
+
+.canvas-div {
+  position: relative;
+}
+
+.score {
+  cursor: default;
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  padding: 20px 40px 20px 20px;
+  font-size: 30px;
+  background: rgba(207, 204, 204, 0.3);
+  border-radius: 15px;
+  border: 1px solid beige;
+}
+
+.start-btn-home {
+  cursor: pointer;
+  position: absolute;
+  top: 65%;
+  left: 40%;
+  padding: 20px 40px 20px 40px;
+  font-size: 30px;
+  display: block;
+  border-radius: 15px;
+  background: lightblue;
+  border: 1px solid beige;
+  outline: none;
+  animation: spin 6s infinite ease-in-out;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.start-btn-home:hover {
+  transform: translateY(-3px);
+}
+
+.instructions-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  right: 8%;
+  font-size: 30px;
+}
+
+.instructions {
+  position: absolute;
+  top: 28%;
+  left: 24.5%;
+  font-size: 30px;
+  display: none;
+  text-transform: uppercase;
+  border-radius: 15px;
+  background: rgba(207, 204, 204, 0.5);
+  border: 3px solid beige;
+  color: beige;
+  font-weight: bolder;
+  font-family: 'Orbitron',
+  sans-serif;
+  width: 50%;
+  height: 30%;
+
+}
+
+.arrow-key {
+  font-size: 16px;
+  position: absolute;
+  top: -30%;
+  left: 20%;
+  width: 60%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  border-radius: 15px;
+  background: rgba(207, 204, 204, 0.5);
+  border: 3px solid beige;
+
+}
+
+.spacebar {
+  position: absolute;
+  bottom: -70%;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-radius: 15px;
+  background: rgba(207, 204, 204, 0.5);
+  border: 3px solid beige;
+}
+
+.fa-arrow-up {
+  position: absolute;
+  top: 3%;
+  left: 46%;
+}
+
+.speedup {
+  position: absolute;
+  top: 18%;
+  left: 31%;
+}
+
+.fa-arrow-down {
+  position: absolute;
+  bottom: 3%;
+  left: 46%;
+}
+
+.slowdown {
+  position: absolute;
+  bottom: 20%;
+  left: 25%;
+}
+
+.fa-arrow-left {
+  position: absolute;
+  bottom: 42%;
+  left: 3%;
+}
+
+.left {
+  position: absolute;
+  bottom: 42%;
+  left: 13%;
+}
+
+
+.fa-arrow-right {
+  position: absolute;
+  bottom: 42%;
+  right: 3%;
+}
+
+.right {
+  position: absolute;
+  bottom: 42%;
+  right: 13%;
+}
+
+
+.start-button {
+  cursor: pointer;
+  position: absolute;
+  bottom: -130%;
+  left: 30%;
+  padding: 20px 40px 20px 40px;
+  font-size: 30px;
+  border-radius: 15px;
+  background: lightblue;
+  border: 1px solid beige;
+  outline: none;
+}
+
+.start-button:hover {
+  transform: translateY(-3px);
+}
+
+.soundOn {
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  right: 2%;
+  font-size: 30px;
+}
+
+
+.playAgain {
+  cursor: default;
+  position: absolute;
+  top: 8%;
+  left: 30%;
+  padding: 20px 40px 20px 40px;
+  font-size: 30px;
+  display: none;
+  text-align: center;
+  background: hsla(197, 78%, 67%, 0.8);
+  border-radius: 10px;
+  color: beige;
+  border: 3px solid beige;
+}
+
+.home {
+  cursor: pointer;
+  position: absolute;
+  bottom: 10%;
+  left: 40%;
+  padding: 20px 40px 20px 40px;
+  font-size: 30px;
+  display: none;
+  text-align: center;
+  background: hsla(197, 78%, 67%, 0.8);
+  border-radius: 10px;
+  color: beige;
+  border: 3px solid beige;
+}
+
+.home:hover {
+  transform: translateY(-3px);
 }
 
 .canvas {
   width: 800px;
   height: 750px;
+
+  border-radius: 15px;
 }
 
 .navbar-div {
@@ -22,8 +234,16 @@ body {
   background: lightblue;
 }
 
-.empty {
-  margin-left: 50px;
+.playMusicDiv {
+  display: flex;
+}
+
+.playMusic {
+  margin-right: 20px;
+}
+
+.playMusic, .stopMusic {
+  cursor: pointer;
 }
 
 .about-links-div {
@@ -38,4 +258,8 @@ body {
 .title-div {
   font-size: 60px;
   margin-left: 20px;
+}
+
+.fa-volume-mute {
+  color: red;
 }
