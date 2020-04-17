@@ -2,9 +2,10 @@ import Road from "./road";
 import PlayerTaxi from "./player";
 import GameControls from "./game_controls";
 import OtherTaxi from "./otherTaxi";
-import isCollided from "./utilities";
+import { isCollided } from "./utilities";
 import GameOverPage from "./gameOverPage";
 import Score from "./score";
+import Instructions from "./instructions"
 
 export default class Game {
   
@@ -46,6 +47,44 @@ export default class Game {
     document.onkeydown = null;
   }
 
+  questionMarkListener() {
+    document.addEventListener('click', (e) => {
+      if (e.toElement.className === "fas fa-question-circle") {
+        this.gameOver = true;
+        document.querySelector('.instructions').style.display = "block";
+        document.querySelector('.start-btn-home').style.display = "none";
+        let music = document.querySelector(".playMusic");
+        let audio = document.getElementById("cukurdayiz");
+        if (!audio) {
+          music.click();
+        } else {
+          if (audio.paused) {
+            music.click();
+          }
+        }
+
+        let check = document.querySelector(".speedcount");
+        if (check) {
+          check.parentNode.removeChild(check);
+        }
+        let score = document.querySelector(".scorecount");
+        if (score) {
+          score.style.display = "none"
+          score.parentNode.removeChild(score);
+        }
+        let canvas = document.getElementById('crazy-taxi');
+        let ctx = canvas.getContext("2d");
+        let instructions = new Instructions(ctx);
+        requestAnimationFrame(gameloop);
+
+        function gameloop() {
+          instructions.update();
+          requestAnimationFrame(gameloop);
+        }
+      }
+    });
+  }
+
   update() {
     document.querySelector('.start-btn-home').style.display = "none";
     document.querySelector('.instructions').style.display = "none";
@@ -53,6 +92,7 @@ export default class Game {
     document.querySelector(".playAgain").style.display = "none";
     document.querySelector(".home").style.display = "none";
 
+    this.questionMarkListener();
     this.road.update();
     this.playerTaxi.update();
     this.otherTaxis.forEach(taxi => {

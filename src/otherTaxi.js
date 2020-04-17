@@ -15,7 +15,7 @@ export default class OtherTaxi {
     this.taxi = [this.taxi1, this.taxi2, this.taxi3, this.taxi4][Math.floor(Math.random() * 4)];
     this.positionX = [85, 130, 178][Math.floor(Math.random() * 3)];
     if (this.game.road.speed === 0) {
-      this.positionY = [90, 80, 70, 60, 50, 40, 30][Math.floor(Math.random() * 7)];
+      this.positionY = [70, 60, 50, 40, 30][Math.floor(Math.random() * 5)];
     } else {
       this.positionY = 0;
     }

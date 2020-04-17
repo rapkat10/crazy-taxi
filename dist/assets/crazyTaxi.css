@@ -240,10 +240,27 @@ body {
 
 .playMusic {
   margin-right: 20px;
+  margin-left: 20px;
+}
+
+.stopMusic {
+  margin-right: 20px;
 }
 
 .playMusic, .stopMusic {
   cursor: pointer;
+}
+
+.fa-music {
+  color: beige;
+  animation: spin 6s infinite ease-in-out;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
 }
 
 .about-links-div {
