@@ -8,6 +8,8 @@
   <link rel="stylesheet" type="text/css" href="./assets/reset.css" />
   <link rel="stylesheet" type="text/css" href="./assets/crazyTaxi.css"/>
 
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+
   <script src="https://kit.fontawesome.com/29e5d21619.js" 
     crossorigin="anonymous">
   </script>
@@ -15,8 +17,18 @@
 </head>
 <body>
 
+  <audio id="jump" class="sound">
+    <source src="./assets/sounds/jump.wav" />
+  </audio>
+  <audio id="crash" class="sound">
+    <source src="./assets/sounds/crash1.wav" />
+  </audio>
+
   <div id="navbar" class="navbar-div">
-    <div class="empty"></div>
+    <div class="playMusicDiv">
+      <p class="playMusic">Play Music</p> 
+      <p class="stopMusic">Stop Music</p>
+    </div>
     <div class="title-div">
       <h1>Crazy Taxi</h1>
     </div>
@@ -35,6 +47,33 @@
   </div>
 
   <div class="canvas-div">
+    <div class="scoreDiv">
+      <p class="score">Score:</p>
+    </div>
+    <div class="start"><button class="start-btn-home">START</button></div>
+    <div class="soundOn">
+      <i class="fas fa-volume-up" id="soundIcon"></i>
+    </div>
+    <div class="instructions-icon" >
+      <i class="fas fa-question-circle"></i>
+    </div>
+    <div class="instructions">
+      <p class="arrow-key">use arrow keys to play</p>
+      <i class="fas fa-arrow-up"></i>
+      <p class="speedup">Speed Up</p><br><br>
+      <i class="fas fa-arrow-left"></i>
+      <p class="left">Left</p><br><br>
+      <i class="fas fa-arrow-right"></i>
+      <p class="right">Right</p><br><br>
+      <i class="fas fa-arrow-down"></i>
+      <p class="slowdown">Slow down</p>
+      <p class="spacebar">Space Bar = Jump</p>
+      <button class="start-button">
+        Start
+      </button>
+    </div>
+    <div class="playAgain">Press Enter to <br> Play Again</div>
+    <div class="home">HOME</div>
     <canvas id="crazy-taxi" class="canvas"></canvas>
   </div>
 
