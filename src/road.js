@@ -33,6 +33,10 @@ export default class Road {
   }
 
   update() {
+    setTimeout(() => {
+      this.speed += 0.5;
+    }, 10000)
+
     if (this.yOffSet >= 0) this.yOffSet = -150;
     this.ctx.drawImage(this.road, 0, this.yOffSet);
     this.ctx.drawImage(this.road, 0, this.yOffSet + 150);

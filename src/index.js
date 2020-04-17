@@ -18,6 +18,7 @@ document.addEventListener('click', (e) => {
   if (e.toElement.className === "start-btn-home") {
     document.querySelector('.instructions').style.display = "block";
     document.querySelector('.start-btn-home').style.display = "none";
+    document.querySelector(".playMusic").click();
     let canvas = document.getElementById('crazy-taxi');
     let ctx = canvas.getContext("2d");
     let instructions = new Instructions(ctx);
