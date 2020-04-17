@@ -1,10 +1,8 @@
-
 export default class GameControls {
 
   constructor(options) {
     this.road = options.road;
     this.playerTaxi = options.playerTaxi;
-
     this.controls();
   }
 
@@ -24,6 +22,8 @@ export default class GameControls {
           this.road.slowDown();
           break;
         case 32: //spacebar
+          let jumpSound = document.getElementById("jump");
+          jumpSound.play();
           this.playerTaxi.jump();
           break;
         default:
