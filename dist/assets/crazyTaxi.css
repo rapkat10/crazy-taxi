@@ -228,9 +228,8 @@ body {
   margin-bottom: 20px;
   color: black;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-
   background: lightblue;
 }
 
@@ -239,12 +238,12 @@ body {
 }
 
 .playMusic {
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 1vw;
+  margin-left: 1vw;
 }
 
 .stopMusic {
-  margin-right: 20px;
+  margin-right: 1vw;
 }
 
 .playMusic, .stopMusic {
@@ -265,16 +264,44 @@ body {
 
 .about-links-div {
   display: flex;
-  margin-left: 30px;
 }
 
-.fab {
+.fa-linkedin, .fa-github {
   margin: 10px;
+
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.fa-linkedin:hover,
+.fa-github:hover {
+  -webkit-animation: none;
 }
 
 .title-div {
-  font-size: 60px;
-  margin-left: 20px;
+  font-size: 50px;
 }
 
 .fa-volume-mute {
