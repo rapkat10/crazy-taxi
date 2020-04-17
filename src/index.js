@@ -53,6 +53,8 @@ document.addEventListener('click', (e) => {
   }
   //home button
   if (e.toElement.className === "home") {
+    let score = document.querySelector(".scorecount");
+    score.parentNode.removeChild(score);
     document.querySelector('.start-btn-home').style.display = "block";
     let canvas = document.getElementById('crazy-taxi');
     let ctx = canvas.getContext("2d");
@@ -85,7 +87,6 @@ document.addEventListener('click', (e) => {
   }
   //play music and stop music
   if (e.toElement.className === "playMusic") {
-    debugger;
     const musicArr = [
       "../dist/assets/sounds/cukurdayiz.mp3",
       "../dist/assets/sounds/heycan.wav"
@@ -103,7 +104,6 @@ document.addEventListener('click', (e) => {
     }
     document.getElementById("cukurdayiz").play();
     document.getElementById("cukurdayiz").onended = function() {
-      debugger;
       document.querySelector(".playMusic").click();
     }
     return;

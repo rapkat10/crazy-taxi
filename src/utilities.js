@@ -6,9 +6,7 @@ export default function isCollided(playerTaxi, otherTaxis) {
         if (otherTaxi.positionX === playerTaxi.positionX) {
           if (otherTaxi.positionY > 105) {
             if (otherTaxi.positionY < 138) {
-              debugger;
               if (!playerTaxi.jumped) {
-                debugger;
                 result = true;
               }
             }

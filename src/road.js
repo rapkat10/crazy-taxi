@@ -47,6 +47,7 @@ export default class Road {
     this.ctx.drawImage(this.sceneLeft, -19, this.yOffSet + 300);
 
     this.yOffSet += this.speed;
+    this.game.score.update();
   }
 
 }

@@ -4,6 +4,7 @@ import GameControls from "./game_controls";
 import OtherTaxi from "./otherTaxi";
 import isCollided from "./utilities";
 import GameOverPage from "./gameOverPage";
+import Score from "./score";
 
 export default class Game {
   
@@ -11,6 +12,7 @@ export default class Game {
     this.ctx = ctx;
     this.road = new Road(this);
     this.playerTaxi = new PlayerTaxi(this);
+    this.score = new Score(this);
 
     new GameControls({
         road: this.road,
@@ -37,6 +39,8 @@ export default class Game {
     this.gameOver = false;
     document.querySelector(".playAgain").style.display = "none";
     document.querySelector(".home").style.display = "none";
+    let score = document.querySelector(".scorecount");
+    score.parentNode.removeChild(score);
     document.onkeydown = null;
   }
 
@@ -44,29 +48,32 @@ export default class Game {
     document.querySelector('.start-btn-home').style.display = "none";
     document.querySelector('.instructions').style.display = "none";
     if (this.gameOver) return;
-
     document.querySelector(".playAgain").style.display = "none";
     document.querySelector(".home").style.display = "none";
 
     this.road.update();
     this.playerTaxi.update();
-
     this.otherTaxis.forEach(taxi => {
       taxi.update();
     });
 
     if (isCollided(this.playerTaxi, this.otherTaxis)) {
+      const canvasDiv = document.querySelector(".canvas-div");
+      let score = document.createElement("P");
+      score.setAttribute("class", "scorecount");
+      score.innerHTML = this.score.score;
+      canvasDiv.appendChild(score);
+
       document.getElementById("crash").play();
       this.gameOver = true;
-      let gameOverPage = new GameOverPage(this.ctx);
+      let gameOverPage = new GameOverPage(this);
       requestAnimationFrame(gameloop);
       function gameloop() {
         gameOverPage.update();
         requestAnimationFrame(gameloop);
       }
       document.onkeydown = e => this.playAgain(e);
+      this.score.update(this.gameOver);
     }
-
   }
-
 }

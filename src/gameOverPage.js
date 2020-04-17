@@ -1,7 +1,8 @@
 export default class MainPage {
 
-  constructor(ctx) {
-    this.ctx = ctx;
+  constructor(game) {
+    this.game = game;
+    this.ctx = this.game.ctx;
     this.gameOver = new Image;
     this.gameOver.src = "../dist/assets/images/gameover.png";
   }
