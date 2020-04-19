@@ -100,11 +100,11 @@ export default class Game {
     });
 
     if (isCollided(this.playerTaxi, this.otherTaxis)) {
-      const canvasDiv = document.querySelector(".canvas-div");
+      const scoreDiv = document.querySelector(".scoreDiv");
       let score = document.createElement("P");
       score.setAttribute("class", "scorecount");
       score.innerHTML = this.score.score;
-      canvasDiv.appendChild(score);
+      scoreDiv.appendChild(score);
 
       document.getElementById("crash").play();
       this.gameOver = true;

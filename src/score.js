@@ -15,7 +15,7 @@ export default class Score {
       }
       return;
     } else {
-      const canvasDiv = document.querySelector(".canvas-div");
+      const scoreDiv = document.querySelector(".scoreDiv");
       const check = document.querySelector(".scorecount");
       let score;
       if (!check) {
@@ -29,7 +29,7 @@ export default class Score {
             score.innerHTML = this.score;
           }, 100);
         }
-        canvasDiv.appendChild(score);
+        scoreDiv.appendChild(score);
       }
     }
   }
