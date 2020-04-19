@@ -398,4 +398,15 @@
     width: 80vw;
     height: 60vh;
   }
+
+  .navbar-div {
+    max-height: 10vh;
+    width: 100vw;
+    margin-bottom: 20px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: lightblue;
+  }
 }
