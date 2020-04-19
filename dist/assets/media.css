@@ -395,7 +395,7 @@
 @media only screen and (max-width: 400px) {
   .canvas-div {
     position: relative;
-    width: 80vw;
+    width: 90vw;
     height: 70vh;
   }
 
