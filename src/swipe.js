@@ -31,24 +31,28 @@ export const swipeListener = (options) => {
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       if (xDiff === 0) {
-        //
+        // tap
+        document.getElementById("jump").play();
+        playerTaxi.jump();
       }
       if (xDiff > 0) {
-        /* left swipe */
+        // left swipe 
         playerTaxi.moveLeft();
       } else {
-        /* right swipe */
+        // right swipe
         playerTaxi.moveRight();
       }
     } else {
       if(yDiff === 0) {
-        //
+        // tap
+        document.getElementById("jump").play();
+        playerTaxi.jump();
       }
       if (yDiff > 0) {
-        /* up swipe */
+        // up swipe
         road.speedUp();
       } else {
-        /* down swipe */
+        // down swipe
         road.slowDown();
       }
     }
