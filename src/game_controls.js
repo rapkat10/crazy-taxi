@@ -1,9 +1,11 @@
+import swipeListener from "./swipe";
 export default class GameControls {
 
   constructor(options) {
     this.road = options.road;
     this.playerTaxi = options.playerTaxi;
     this.controls();
+    swipeListener(options);
   }
 
   controls() {
