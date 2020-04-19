@@ -39,10 +39,6 @@ export const swipeListener = (options) => {
       alert(swiped + 'left!');
       return;
     }
-    if (touchendY == touchstartY) {
-      alert('tap!');
-      return;
-    }
   }
 
 
