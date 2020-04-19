@@ -24,8 +24,7 @@ export default class GameControls {
           this.road.slowDown();
           break;
         case 32: //spacebar
-          let jumpSound = document.getElementById("jump");
-          jumpSound.play();
+          document.getElementById("jump").play();
           this.playerTaxi.jump();
           break;
         default:
