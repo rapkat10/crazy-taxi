@@ -31,7 +31,7 @@ export const swipeListener = (options) => {
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       if (xDiff === 0) {
-        this.road.speedUp();
+        //
       }
       if (xDiff > 0) {
         /* left swipe */
@@ -42,17 +42,17 @@ export const swipeListener = (options) => {
       }
     } else {
       if(yDiff === 0) {
-        this.road.speedUp();
+        //
       }
       if (yDiff > 0) {
         /* up swipe */
-        this.road.speedUp();
+        road.speedUp();
       } else {
         /* down swipe */
         road.slowDown();
       }
     }
-    
+
     xDown = null;
     yDown = null;
   };
