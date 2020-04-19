@@ -118,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return GameControls; });\nclass GameControls {\n\n  constructor(options) {\n    this.road = options.road;\n    this.playerTaxi = options.playerTaxi;\n    this.controls();\n  }\n\n  controls() {\n    document.addEventListener(\"keydown\", (e) => {\n      switch(e.keyCode) {\n        case 37: //left\n          this.playerTaxi.moveLeft();\n          break;\n        case 38: //up\n          this.road.speedUp();\n          break;\n        case 39: //right\n          this.playerTaxi.moveRight();\n          break;\n        case 40: //down\n          this.road.slowDown();\n          break;\n        case 32: //spacebar\n          let jumpSound = document.getElementById(\"jump\");\n          jumpSound.play();\n          this.playerTaxi.jump();\n          break;\n        default:\n          break;\n      }\n    })\n  }\n}\n\n//# sourceURL=webpack:///./src/game_controls.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return GameControls; });\n/* harmony import */ var _swipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./swipe */ \"./src/swipe.js\");\n\nclass GameControls {\n\n  constructor(options) {\n    this.road = options.road;\n    this.playerTaxi = options.playerTaxi;\n    debugger;\n    this.controls();\n    Object(_swipe__WEBPACK_IMPORTED_MODULE_0__[\"swipeListener\"])(options);\n  }\n\n  controls() {\n    debugger;\n    document.addEventListener(\"keydown\", (e) => {\n      switch(e.keyCode) {\n        case 37: //left\n          this.playerTaxi.moveLeft();\n          break;\n        case 38: //up\n          this.road.speedUp();\n          break;\n        case 39: //right\n          this.playerTaxi.moveRight();\n          break;\n        case 40: //down\n          this.road.slowDown();\n          break;\n        case 32: //spacebar\n          let jumpSound = document.getElementById(\"jump\");\n          jumpSound.play();\n          this.playerTaxi.jump();\n          break;\n        default:\n          break;\n      }\n    })\n  }\n}\n\n//# sourceURL=webpack:///./src/game_controls.js?");
 
 /***/ }),
 
@@ -203,6 +203,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Score; });\nclass Score {\n\n  constructor(game) {\n    this.game = game;\n    this.ctx = this.game.ctx;\n    this.score = 0;\n  }\n\n  update(gameOver) {\n    if (gameOver) {\n      this.score = 0;\n      let score = document.querySelector(\".scorecount\");\n      if (score) {\n        score.parentNode.removeChild(score);\n      }\n      return;\n    } else {\n      const scoreDiv = document.querySelector(\".scoreDiv\");\n      const check = document.querySelector(\".scorecount\");\n      let score;\n      if (!check) {\n        score = document.createElement(\"P\");\n        score.setAttribute(\"class\", \"scorecount\");\n        this.score = 0\n        score.innerHTML = this.score;\n        if (score) {\n          setInterval(() => {\n            this.score += 1;\n            score.innerHTML = this.score;\n          }, 100);\n        }\n        scoreDiv.appendChild(score);\n      }\n    }\n  }\n}\n\n//# sourceURL=webpack:///./src/score.js?");
+
+/***/ }),
+
+/***/ "./src/swipe.js":
+/*!**********************!*\
+  !*** ./src/swipe.js ***!
+  \**********************/
+/*! exports provided: swipeListener */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"swipeListener\", function() { return swipeListener; });\n\nconst swipeListener = (options) => {\n  debugger;\n  document.addEventListener('touchstart', handleTouchStart, false);\n  document.addEventListener('touchmove', handleTouchMove, false);\n\n  const road = options.road;\n  const playerTaxi = options.playerTaxi;\n\n  var xDown = null;\n  var yDown = null;\n\n  function getTouches(evt) {\n    return evt.touches || // browser API\n      evt.originalEvent.touches; // jQuery\n  }\n\n  function handleTouchStart(evt) {\n    const firstTouch = getTouches(evt)[0];\n    xDown = firstTouch.clientX;\n    yDown = firstTouch.clientY;\n  };\n\n  function handleTouchMove(evt) {\n    if (!xDown || !yDown) {\n      return;\n    }\n\n    var xUp = evt.touches[0].clientX;\n    var yUp = evt.touches[0].clientY;\n\n    var xDiff = xDown - xUp;\n    var yDiff = yDown - yUp;\n\n    if (Math.abs(xDiff) > Math.abs(yDiff)) {\n      /*most significant*/\n      if (xDiff > 0) {\n        /* left swipe */\n        playerTaxi.moveLeft();\n      } else {\n        /* right swipe */\n        playerTaxi.moveRight();\n      }\n    } else {\n      if (yDiff > 0) {\n        /* up swipe */\n        this.road.speedUp();\n      } else {\n        /* down swipe */\n        road.slowDown();\n      }\n    }\n    /* reset values */\n    xDown = null;\n    yDown = null;\n  };\n}\n\n//# sourceURL=webpack:///./src/swipe.js?");
 
 /***/ }),
 

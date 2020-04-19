@@ -1,5 +1,6 @@
 
 export const swipeListener = (options) => {
+  debugger;
   document.addEventListener('touchstart', handleTouchStart, false);
   document.addEventListener('touchmove', handleTouchMove, false);
 

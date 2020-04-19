@@ -1,14 +1,16 @@
-import swipeListener from "./swipe";
+import { swipeListener } from "./swipe";
 export default class GameControls {
 
   constructor(options) {
     this.road = options.road;
     this.playerTaxi = options.playerTaxi;
+    debugger;
     this.controls();
     swipeListener(options);
   }
 
   controls() {
+    debugger;
     document.addEventListener("keydown", (e) => {
       switch(e.keyCode) {
         case 37: //left
