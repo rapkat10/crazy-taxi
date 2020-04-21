@@ -22,10 +22,9 @@ Crazy Taxi is car game where you have a taxi, driving on a lane and you have to 
 
 #### Lastly, this is the game over page. You can hit ENTER to play again, or click the HOME button to go the main page.
 
-<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/wireframes/MAIN_PAGE.png" width=420 height=400 align=center>
-<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/wireframes/INSTRUCTION_PAGE.png" width=420 height=400 align=right>
-<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/wireframes/GAME_PAGE.png" width=420 height=400 align=center>
-<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/wireframes/GAME-OVER_PAGE.png" width=420 height=400 align=right>
+<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/wireframes/MAIN_PAGE.png" width=400 height=400 align=center>
+<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/wireframes/INSTRUCTION_PAGE.png" width=400 height=400 align=right>
+
 
 ## Technologies
 * Javascript for logic of the game
