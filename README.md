@@ -3,6 +3,10 @@ Crazy Taxi is car game where you have a taxi, driving on a lane and you have to 
 
 [Live Site](https://rapkat10.github.io/crazy-taxi/)
 
+<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/screenshots/game.png" width=420 height=400 align=right>
+<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/screenshots/mainpage.png" width=420 height=400 align=center>
+<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/screenshots/gameover.png" width=420 height=400 align=right>
+<img src="https://github.com/rapkat10/crazy-taxi/blob/master/docs/screenshots/instructions.png" width=420 height=400 align=center>
 
 ## MVP
 * Start the game, re-start after the game is over
