@@ -1,5 +1,5 @@
 # Crazy Taxi
-Crazy Taxi is car game where you have a taxi, driving on a lane and you have to jump over other taxis on the road. If you crash into another taxi, you loose. As long as you avoid crashing, the game doesn't end!
+Crazy Taxi is a car game where you have a taxi, driving on a lane and you have to jump over other taxis on the road. If you crash into another taxi, you lose. As long as you avoid crashing, the game doesn't end!
 
 [Live Site](https://rapkat10.github.io/crazy-taxi/)
 
