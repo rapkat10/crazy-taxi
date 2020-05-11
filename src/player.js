@@ -43,7 +43,7 @@ export default class PlayerTaxi {
     setTimeout(() => {
       this.positionY = 120;
       this.jumped = false;
-    }, 2000)
+    }, 200)
   }
 
   update() {
