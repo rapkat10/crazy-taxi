@@ -32,7 +32,8 @@ export default class OtherTaxi {
         this.positionY += this.game.road.speed / 3;
       }
     } else {
-      if (this.positionX === this.game.playerTaxi.positionX && this.positionY >= 80) {
+      if ((this.positionX === this.game.playerTaxi.positionX) &&
+        (this.positionY >= 80 && this.positionY <= 120)) {
         this.positionY = 140;
       }
     }
